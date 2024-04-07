@@ -375,9 +375,8 @@ alguns de nossos serviços:
 - desenvolvimento de aplicações mobile, web e desktop
 - i.a. generativa - tenha um I.A. focada em seu negócio, atendendo os seus clientes e fornecedores por whatsapp, chat e u.r.a.
 
-visite o nosso site:
-[logicinfo.com.br](https://logicinfo.com.br)
+nosso site: [logicinfo.com.br](https://logicinfo.com.br)
 
-fale consoco:
 whatsapp: [11 9 8627 4173](11-9-8627-4173)
+
 e-mail: [contato@logicinfo.com.br](contato@logicinfo.com.br)
