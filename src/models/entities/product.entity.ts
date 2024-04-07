@@ -1,7 +1,5 @@
 // src\models\entities\product.entity.ts - (created by: logicinfo.com.br/ael)
-import { BaseEntity, DataType } from './base.entity';
-
-export class Product extends BaseEntity {
+export class Product {
   id: number;
   name: string;
   price: number;
@@ -9,12 +7,7 @@ export class Product extends BaseEntity {
   updated_at: Date;
 
   constructor(id: number, name: string, price: number, created_at: Date, updated_at: Date) {
-    // Prepara os dados para passar para a classe base.
-    const data: DataType = { id, name, price, created_at, updated_at };
-    super(data); // Agora passando os dados corretamente para a classe base.
-    
-    // As propriedades são definidas dinamicamente pela classe base, mas podemos redefini-las aqui se necessário para clareza ou para adicionar métodos específicos da classe.
-    this.id = id;
+  this.id = id;
     this.name = name;
     this.price = price;
     this.created_at = created_at;

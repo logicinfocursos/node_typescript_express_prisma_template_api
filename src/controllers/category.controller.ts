@@ -4,8 +4,11 @@ import { CategoryRepository } from '../models/repositories/category.repository'
 import { Category } from '../models/entities/category.entity'
 
 class CategoryController extends BaseController<Category> {
+
   constructor() {
+
     super(new CategoryRepository())
+    
   }
 }
 

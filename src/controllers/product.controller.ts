@@ -4,8 +4,11 @@ import { ProductRepository } from '../models/repositories/product.repository'
 import { Product } from '../models/entities/product.entity'
 
 class ProductController extends BaseController<Product> {
+
   constructor() {
+
     super(new ProductRepository())
+    
   }
 }
 
