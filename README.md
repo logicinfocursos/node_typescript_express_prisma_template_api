@@ -2,11 +2,11 @@
 [node_express_prisma_template_api](https://github.com/logicinfocursos/node_typescript_express_prisma_template_api.git)
 [github](https://github.com/logicinfocursos?tab=repositories)
 
-Esse projeto visa ajudá-lo passo-a-passo a criar uma api robusta e usando as melhores práticas do mercado. Empregamos recursos importantes de orientação a objetos como interfaces, abstract class, herança, generics e injeção de dependências visando um código moderno, eficiente e minimizando a repetição de código.
+esse projeto visa ajudá-lo passo-a-passo a criar uma api robusta e usando as melhores práticas do mercado. Empregamos recursos importantes de orientação a objetos como interfaces, abstract class, herança, generics e injeção de dependências visando um código moderno, eficiente e minimizando a repetição de código
 
-Usaremos o padrão de projetos mvc e implementaremos as operações CRUD (create, read, update e delete).
+usaremos o padrão de projetos mvc e implementaremos as operações CRUD (create, read, update e delete)
 
-Espero que esse código possa ser usado para você como uma espécie de template ou skeleton "coringa" como um ponto de partida para os seus próximos projetos.
+espero que esse código possa ser usado para você como uma espécie de template ou skeleton "coringa" como um ponto de partida para os seus próximos projetos
 
 ### criar o projeto node js
 1- inicializar o projeto:
@@ -17,7 +17,7 @@ c:\> cd api
 c:\api> npm init -y
 </pre>
 
-Isso criará um arquivo package.json na raiz do seu projeto.
+isso criará um arquivo package.json na raiz do seu projeto
 
 ### instalar as dependências iniciais do projeto
 <pre>
@@ -50,7 +50,7 @@ c:\api> npx tsc --init
 ao inicializar o typescript (tsc) é criado o arquivo "tsconfig.json" com suas configurações padrão
 
 ### npm x yarn
-nesse tutorial iremos usar o gerenciador de pacotes do próprio nodejs, o npm (e o npx), mas se preferir usar o yarn, fica a seu critério.
+nesse tutorial iremos usar o gerenciador de pacotes do próprio nodejs, o npm (e o npx), mas se preferir usar o yarn, fica a seu critério
 
 como ajustar a sintaxe?
 <pre>
@@ -69,7 +69,7 @@ obs sobre variações no uso do npm:
 - no lugar de "npm install --save-dev", você pode usar "npm install -D" e no lugar de "install" você pode usar some "i"
 
 # express
-Em nosso projeto iremos usar o express que é o framework (ou mini-framework) mais usado em projetos node js.
+em nosso projeto iremos usar o express que é o framework (ou mini-framework) mais usado em projetos node js
 
 ### criar o primeiro programa do projeto
 na raiz do projeto, criar um arquivo de nome "index.js" com os seguintes comandos:
@@ -112,7 +112,7 @@ outro ponto importante é criar na raíz do projeto um arquivo de nome "nodemon.
 </pre>
 
 ### nosso primeiro hello world
-Pronto, agora podemos executar o nosso projeto pela primeira vez:
+pronto, agora podemos executar o nosso projeto pela primeira vez:
 
 <pre>
 c:\api> npm run start:dev
@@ -138,10 +138,10 @@ Hello World - logicinfo!
 </pre>
 
 # prisma
-O prisma é um orm prático e poderoso. Irá nos ajudar a economizar várias linhas de código em toda manipulação das tabelas vinculadas ao projeto.
+o prisma é um orm prático e poderoso. Irá nos ajudar a economizar várias linhas de código em toda manipulação das tabelas vinculadas ao projeto
 
 ### instalação e inicialização
-Para inicializar o prisma, retorne ao terminal e use a combinação de teclas control + c para interromper a execução atual e liberar o prompt de comando. Digite:
+para inicializar o prisma, retorne ao terminal e use a combinação de teclas control + c para interromper a execução atual e liberar o prompt de comando, digite:
 
 <pre>
 c:\api> npm i prisma @prisma/client
@@ -152,9 +152,9 @@ onde:
 - prisma e @prisma/client, instala o prisma e a sua estrutura de linha de comando
 - inicializa o prisma e indica que o provider será o sqlite
 
-Ao inicializar o prisma, um diretório de nome "prisma" com o arquivo "schema.prisma" é criado, além disso na raíz do projeto também teremos um arquivo de nome ".env" (arquivo de configuração através de variáveis de ambiente).
+ao inicializar o prisma, um diretório de nome "prisma" com o arquivo "schema.prisma" é criado, além disso na raíz do projeto também teremos um arquivo de nome ".env" (arquivo de configuração através de variáveis de ambiente)
 
-Nesse projeto para facilitar o estudo, usaremos o sqlite, mas o prisma trabalha também com mysql, postgreSQL, sqlserver, mongoDB, etc. Isso é fantástico, pois vai permitir a troca do sgbd, caso necessário, sem mexer uma linha de código sequer, apenas alterando pequenas configurações nos arquivos "schema.prisma" e ".env".
+nesse projeto para facilitar o estudo, usaremos o sqlite, mas o prisma trabalha também com mysql, postgreSQL, sqlserver, mongoDB, etc. Isso é fantástico, pois vai permitir a troca do sgbd, caso necessário, sem mexer uma linha de código sequer, apenas alterando pequenas configurações nos arquivos "schema.prisma" e ".env"
 
 ### configurações
 a) arquivo ".env", no caso do sqlite, a string de conexão com os dados de acesso ao banco de dados já vem preenchida e pronta para uso, para mysql e outros sgbd é necessário preencher com os dados de acesso (banco de dados, usuário, etc)
@@ -162,9 +162,9 @@ a) arquivo ".env", no caso do sqlite, a string de conexão com os dados de acess
 "DATABASE_URL="file:./dev.db"
 </pre>
 b) preencher o arquivo "schema.prisma"
-É nesse arquivo que indicamos qual será o provider de banco de dados usado em nosso projeto e também criamos as classes que serão usadas para a criação das tabelas no sgbd.
+é nesse arquivo que indicamos qual será o provider de banco de dados usado em nosso projeto e também criamos as classes que serão usadas para a criação das tabelas no sgbd
 
-Para tanto, altere o conteúdo original do arquivo "schema.prisma", inserindo as classes Product e Category:
+para tanto, altere o conteúdo original do arquivo "schema.prisma", inserindo as classes Product e Category:
 
 <pre>
 generator client {
@@ -201,19 +201,29 @@ model Category {
 }
 </pre>
 
-Para esse projeto, iremos usar apenas duas entidades, Product e Category.
+para esse projeto, iremos usar apenas duas classes (entidades), Product e category
 
-Obs: 
+obs: 
 - a instrução "@@map" é usada para definir o nome da tabela a ser gerada no banco de dados
 - quando utilizarmos o prisma iremos nos referir as classes Product e Category sejam escritas com a primeria letra em maiúscula, durante o uso do prisma essas classes serão referenciadas em letra minúscula, por exemplo: prisma.product.findMany()
 
-Para maiores detalhes sobre a estruturação das propriedades vide a documentação do próprio [prisma](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-mysql)
+para maiores detalhes sobre a estruturação das propriedades vide a documentação do próprio [prisma](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-mysql)
 
-A definição dos tipos/tamanhos e demais configurações de propriedades depende das características de cada banco de dados. Em nosso exemplo, estamos usando as definiões aceitas para tabelas em sqlite. Por exemplo, para mysql existem vários outras configurações possíveis para as propriedades/campos das tabelas. Consulte o material referente ao banco de dados escolhido em seu projeto.
+a definição dos tipos/tamanhos e demais configurações de propriedades depende das características de cada banco de dados
+
+em nosso exemplo, estamos usando as definiões aceitas para tabelas em sqlite
+
+por exemplo, para mysql existem vários outras configurações possíveis para as propriedades/campos das tabelas
+
+consulte o material referente ao banco de dados escolhido em seu projeto
 
 c) Criar as tabelas no banco de dados
 
-Após a configuração da estrutura e características das entidades do nosso projeto, podemos criar efetivamente as tabelas em nosso banco de dados. Esse processo ocorre através de um recurso do prisma chamado “Migration” (outros orms também dispõe desse recurso). Para tanto basta rodar o comando:
+após a configuração da estrutura e características das entidades do nosso projeto, podemos criar efetivamente as tabelas em nosso banco de dados
+
+esse processo ocorre através de um recurso do prisma chamado “Migration” (outros orms também dispõe desse recurso)
+
+para tanto basta rodar o comando:
 
 <pre>
 c:\api> npx prisma migrate dev --name init
@@ -221,16 +231,27 @@ c:\api> npx prisma migrate dev --name init
 
 onde: estamos criando uma "migration" com o nome "init"
 
-Agora se observarmos o diretório prisma, teremos uma pasta de nome "migrations" e um arquivo sqlite de nome "dev.db" já com as tabelas criadas de acordo com a configuração especificada anteriormente.
+agora se observarmos o diretório prisma, teremos uma pasta de nome "migrations" e um arquivo sqlite de nome "dev.db" já com as tabelas criadas de acordo com a configuração especificada anteriormente
 
-### estrutura de pastas do projeto
-Agora que as principais configurações do nosso projeto já foram definidas, é o momento de definir a estrutura de pastas. Iremos manter o nosso código na pasta "src" e dentro dela as seguintes sub-pastas:
+### prisma studio
+o prisma disponibiliza uma ferramenta muito interessante que é o prisma studio
+
+com o prisma studio você consegue gerenciar a base de dados dos projeto e realizar as operações crud dispensando até certo ponto, ferramentas de manipulação de banco de dados como (heidisql, beekeeper, mysql workbench, sql server management studio, etc)
+
+para usá-lo basta digitar:
+<pre>
+c:\api> prisma studio
+</pre>
+# estrutura de pastas do projeto
+agora que as principais configurações do nosso projeto já foram definidas, é o momento de definir a estrutura de pastas
+
+iremos manter o nosso código na pasta "src" e dentro dela as seguintes sub-pastas:
 
 - controllers
 - repositories
 - routes
 
-Essa é a estrutura de pastas que iremos adotar:
+essa é a estrutura de pastas que iremos adotar:
 
 <pre>
 /my-api
@@ -269,8 +290,10 @@ Essa é a estrutura de pastas que iremos adotar:
 |-- package.json
 </pre>
 
-# .env
-O arquivo ".env" pode ser utilizado para outros fins, além do uso através do prisma. Para ilustrar iremos configurar uma variável de ambiente para conter a porta usada em nosso projeto. 
+### .env
+o arquivo ".env" pode ser utilizado para outros fins, além do uso através do prisma
+
+para ilustrar iremos configurar uma variável de ambiente para conter a porta usada em nosso projeto 
 
 <pre>
 DATABASE_URL="file:./dev.db"
@@ -310,7 +333,7 @@ onde:
 - executa o projeto
 
 ### dicas importantes
-Vale a pena também configurar ou criar o arquivo .gitgnore (caso ainda não exista na raíz do projeto) e mencionar o arquivo ".env" e o diretório "node_modules" para que ambos sejam ignorados caso seja do seu interesse manter o seu projeto em um serviço de controle e armazenamento de código como o github, ou o gitlab (entre outros).
+vale a pena também configurar ou criar o arquivo .gitgnore (caso ainda não exista na raíz do projeto) e mencionar o arquivo ".env" e o diretório "node_modules" para que ambos sejam ignorados caso seja do seu interesse manter o seu projeto em um serviço de controle e armazenamento de código como o github, ou o gitlab (entre outros)
 <pre>
 node_modules
 .env
@@ -345,16 +368,16 @@ prisma migrate dev --create-only --name <NAME_OF_YOUR_MIGRATION>
 - (mysql)[https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2]
 # sobre a logicinfo
 
-Somos uma consultoria em T.I. e atuamos com desenvolvimento de aplicações para todos os segumentos e mantemos também uma estrutura de treinamento com as melhores soluções para o aprendizado em programação.
+somos uma consultoria em T.I. e atuamos com desenvolvimento de aplicações para todos os segumentos e mantemos também uma estrutura de treinamento com as melhores soluções para o aprendizado em programação
 
-Alguns de nossos serviços:
+alguns de nossos serviços:
 
 - desenvolvimento de aplicações mobile, web e desktop
-- I.A. Generativa - tenha um I.A. focada em seu negócio, atendendo os seus clientes e fornecedores por whatsapp, chat e U.R.A.
+- i.a. generativa - tenha um I.A. focada em seu negócio, atendendo os seus clientes e fornecedores por whatsapp, chat e u.r.a.
 
-Visite o nosso site:
+visite o nosso site:
 [logicinfo.com.br](https://logicinfo.com.br)
 
-Fale consoco:
+fale consoco:
 whatsapp: [11 9 8627 4173](11-9-8627-4173)
 e-mail: [contato@logicinfo.com.br](contato@logicinfo.com.br)

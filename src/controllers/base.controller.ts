@@ -1,26 +1,18 @@
-// src\controllers\base.controller.js - (created by: logicinfo.com.br/ael)
-import { IController } from "./icontroller"
+// src\controllers\base.controller.ts - (created by: logicinfo.com.br/ael)
+import { IController } from './icontroller'
 import { Request, Response } from 'express'
+import { IRepository } from '../models/repositories/irepository'
 
+export abstract class BaseController<T> implements IController<T> {
+  protected repository: IRepository<T>
 
-
-export class BaseController implements IController{
-
-  protected prismaModel
-  protected repository
-  protected entity
-
-  constructor(prismaModel: any, repository: any) {
-
-    this.prismaModel = prismaModel
+  constructor(repository: IRepository<T>) {
     this.repository = repository
-
-    this.entity = prismaModel.charAt(0).toUpperCase() + prismaModel.slice(1)
   }
 
 
 
-  async getAll(_: Request, response: Response) {
+  async getAll(_: Request, response: Response): Promise<T[] | void | null> {
 
     try {
 
@@ -37,7 +29,7 @@ export class BaseController implements IController{
 
 
 
-  async getById(request: Request, response: Response) {
+  async getById(request: Request, response: Response): Promise<T | void | null> {
 
     try {
       const result = await this.repository.getById(Number(request.params.id))
@@ -53,7 +45,7 @@ export class BaseController implements IController{
 
 
 
-  async getListByKey(request: Request, response: Response) {
+  async getListByKey(request: Request, response: Response): Promise<T[] | void | null> {
 
     try {
       const { key, field } = request.params
@@ -68,7 +60,7 @@ export class BaseController implements IController{
 
 
   
-  async create(request: Request, response: Response) {
+  async create(request: Request, response: Response): Promise<T | void | null> {
 
     try {
       const result = await this.repository.create(request.body)
@@ -84,7 +76,7 @@ export class BaseController implements IController{
 
 
 
-  async update(request: Request, response: Response) {
+  async update(request: Request, response: Response): Promise<T | void | null> {
 
     try {
       const result = await this.repository.update(Number(request.params.id), request.body)
@@ -100,7 +92,7 @@ export class BaseController implements IController{
 
 
 
-  async erase(request: Request, response: Response) {
+  async erase(request: Request, response: Response): Promise<T | void | null> {
 
     try {
       const result = await this.repository.erase(Number(request.params.id))

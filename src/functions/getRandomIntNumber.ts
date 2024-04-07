@@ -1,6 +1,7 @@
-// src\functions\getRandomIntNumber.js - (created by: logicinfo.com.br/ael)
 /*********************************************************************** 
-**  getRandomIntNumber: gerar um número aleatório inteiro entre o 
+    src\functions\getRandomIntNumber.ts - (created by: logicinfo.com.br/ael)
+
+    getRandomIntNumber: gerar um número aleatório inteiro entre o 
     min e máx recebido
 ***********************************************************************/
 export const getRandomIntNumber = (min:any, max:any) => {

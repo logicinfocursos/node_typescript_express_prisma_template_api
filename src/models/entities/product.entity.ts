@@ -1,4 +1,4 @@
-// src\models\entities\product.entity.ts
+// src\models\entities\product.entity.ts - (created by: logicinfo.com.br/ael)
 import { BaseEntity, DataType } from './base.entity';
 
 export class Product extends BaseEntity {

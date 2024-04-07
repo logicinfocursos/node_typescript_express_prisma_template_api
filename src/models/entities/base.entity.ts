@@ -1,4 +1,4 @@
-// src\models\entities\base.entity.ts
+// src\models\entities\base.entity.ts - (created by: logicinfo.com.br/ael)
 export type DataType = {
     [key: string]: any;
   };

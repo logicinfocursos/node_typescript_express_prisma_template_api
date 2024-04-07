@@ -1,4 +1,4 @@
-// src\models\entities\category.entity.ts
+// src\models\entities\category.entity.ts - (created by: logicinfo.com.br/ael)
 import { BaseEntity, DataType } from './base.entity';
 
 export class Category extends BaseEntity {

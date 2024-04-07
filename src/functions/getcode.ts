@@ -1,6 +1,7 @@
-// src\functions\getcode.js  - (created by: logicinfo.com.br/ael)
 /*********************************************************************** 
-**  getCode: gerar um código com o tamanho definido em 'codeLength', 
+    src\functions\getcode.ts  - (created by: logicinfo.com.br/ael)
+
+    getCode: gerar um código com o tamanho definido em 'codeLength', 
     podendo ainda receber um prefix e/ou sufix
 ***********************************************************************/
 import { getRandomIntNumber } from './getRandomIntNumber'

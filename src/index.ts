@@ -1,8 +1,10 @@
-// src/index.ts
+// src/index.ts - (created by: logicinfo.com.br/ael)
 import express, { Express } from 'express'
 import cors from 'cors'
 import { config } from 'dotenv'
 import router from './routes/router'
+
+
 
 config()
 
