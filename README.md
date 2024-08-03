@@ -8,8 +8,27 @@ usaremos o padrão de projetos mvc e implementaremos as operações CRUD (create
 
 espero que esse código possa ser usado para você como uma espécie de template ou skeleton "coringa" como um ponto de partida para os seus próximos projetos
 
-### criar o projeto node js
-1- inicializar o projeto:
+# como criar o projeto
+você tem duas formas de utilizar esse código, clonar o código completo ou fazer o passo a passo para criação e configuração do projeto
+
+### clonar e usar esse projeto
+você clonar esse projeto e instalar as dependências necessárias:
+<pre>
+c:\> git clone https://github.com/logicinfocursos/node_typescript_express_prisma_template_api.git
+c:\> cd node_typescript_express_prisma_template_api
+c:\node_typescript_express_prisma_template_api> npm i
+c:\node_typescript_express_prisma_template_api> npx prisma migrate dev --name init
+c:\node_typescript_express_prisma_template_api> npm run start:dev
+</pre>
+
+onde: 
+- primeiro realizamos a clonagem do projeto diretamente do github
+- usamos o npm i para instalar todas as dependências
+- usamos o recurso do prisma, "migration" para criar as bases de dados de acordo com a definição realizada em ./prisma/schema.prisma, "init" é o nome da migração que será criada
+
+
+### passo a passo para criar e configurar o projeto
+inicializar o projeto:
 
 <pre>
 c:\> mkdir api
@@ -24,8 +43,6 @@ isso criará um arquivo package.json na raiz do seu projeto
 c:\api> npm i express cors dotenv
 c:\api> npm i --save-dev @types/express @types/node @types/cors ts-node nodemon
 </pre>
-
-npm install -D @types/cors 
 
 onde:
 - express: responsável pela por enviar e receber requisições http e orquestra as rotas do projeto
@@ -72,18 +89,18 @@ obs sobre variações no uso do npm:
 em nosso projeto iremos usar o express que é o framework (ou mini-framework) mais usado em projetos node js
 
 ### criar o primeiro programa do projeto
-na raiz do projeto, criar um arquivo de nome "index.js" com os seguintes comandos:
+na raiz do projeto, criar um arquivo de nome "index.ts" com os seguintes comandos:
 
 <pre>
 import express from 'express'
 const app = express()
-const port = 3000
+const port = 3001
 
 app.get('/', (req, res) => {
     res.send('Hello World - logicinfo!')
   })
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log(`Server is running on http://localhost:${port}`)
 })
 </pre>
@@ -128,16 +145,16 @@ no terminal teremos um resultado semelhante a esse:
 [nodemon] watching path(s): **\*
 [nodemon] watching extensions: ts,js
 [nodemon] starting `ts-node ./src/index.ts`
-Server is running on http://localhost:3000!
+Server is running on http://localhost:3001!
 </pre>
 
-e se consultarmos o navegador na url [localhost:3000/](http://localhost:3000/), teremos a seguinte mensagem:
+e se consultarmos o navegador na url [localhost:3001/](http://localhost:3001/), teremos a seguinte mensagem:
 
 <pre>
 Hello World - logicinfo!
 </pre>
 
-# prisma
+## prisma
 o prisma é um orm prático e poderoso. Irá nos ajudar a economizar várias linhas de código em toda manipulação das tabelas vinculadas ao projeto
 
 ### instalação e inicialização
@@ -213,7 +230,7 @@ a definição dos tipos/tamanhos e demais configurações de propriedades depend
 
 em nosso exemplo, estamos usando as definiões aceitas para tabelas em sqlite
 
-por exemplo, para mysql existem vários outras configurações possíveis para as propriedades/campos das tabelas
+se optar por usar o mysql, existem vários outras configurações possíveis para as propriedades/campos das tabelas
 
 consulte o material referente ao banco de dados escolhido em seu projeto
 
